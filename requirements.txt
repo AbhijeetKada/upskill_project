@@ -1,0 +1,3 @@
+SQLAlchemy==1.3.17s
+pandas==1.3.5
+pyspark==3.0.3
