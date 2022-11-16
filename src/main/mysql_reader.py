@@ -64,7 +64,7 @@ if __name__ == '__main__':
         config.read(f)
     spark = SparkSession \
         .builder.config("spark.jars",
-                        r"C:\Users\Abhijeet Kadam\projects\upskill_project\jar files\mysql-connector-java-8.0.22.jar,C:\Users\Abhijeet Kadam\projects\upskill_project\jar files\aws-java-sdk-bundle-1.11.563.jar,C:\Users\Abhijeet Kadam\projects\upskill_project\jar files\hadoop-aws-3.2.2.jar") \
+                        r"..\projects\upskill_project\jar files\mysql-connector-java-8.0.22.jar,..\projects\upskill_project\jar files\aws-java-sdk-bundle-1.11.563.jar,..\projects\upskill_project\jar files\hadoop-aws-3.2.2.jar") \
         .config('spark.hadoop.fs.s3a.aws.credentials.provider', 'org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider') \
         .config('spark.hadoop.fs.s3a.access.key', access_key) \
         .config('spark.hadoop.fs.s3a.secret.key', secret_key) \
