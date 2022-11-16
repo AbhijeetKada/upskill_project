@@ -1,10 +1,8 @@
-from configparser import ConfigParser
-
 from pyspark.shell import sc
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import to_timestamp
 from pyspark.sql.types import StructType, StructField, StringType
-from mysql_reader import get_diff_in_days,filter_data, data_read
+from src.main.mysql_reader import get_diff_in_days,filter_data
 
 
 def test_get_diff_in():
