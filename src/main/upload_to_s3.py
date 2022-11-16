@@ -2,7 +2,7 @@ from configparser import ConfigParser
 import boto3
 from botocore.exceptions import NoCredentialsError
 
-file = r'C:\Users\Abhijeet Kadam\projects\upskill_project\config files\config.ini'
+file = r'..\projects\upskill_project\config files\config.ini'
 config = ConfigParser()
 config.read(file)
 with open(file, 'r') as f:
