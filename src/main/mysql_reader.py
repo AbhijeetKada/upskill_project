@@ -2,6 +2,7 @@ from configparser import ConfigParser
 from datetime import datetime
 from pyspark.sql import SparkSession
 from upload_to_s3 import upload_to_aws
+from load_execution_log_table import load_job_execution_details
 
 
 def data_read(spark, TABLE_NAME, DB_DRIVER, DB_USER, DB_PASS, URL):
@@ -49,6 +50,7 @@ def upload(dat):
 
 
 if __name__ == '__main__':
+    job_start_timestamp = datetime.datetime.now();
     file = 'config files/config.ini'
     config = ConfigParser()
     config.read(file)
@@ -83,3 +85,6 @@ if __name__ == '__main__':
     data = filter_data(spark, diff_in_days, tables_nm, wdata, start_date, end_date)
     write_to_file(data)
     upload(data)
+    job_end_timestamp = datetime.datetime.now()
+    job_status = "SUCCESS"
+    load_job_execution_details(job_start_timestamp, job_end_timestamp, job_status)
