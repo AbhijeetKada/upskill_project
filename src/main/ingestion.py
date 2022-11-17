@@ -1,13 +1,13 @@
 import boto3
 import configparser
-
-# Reading configs
 from botocore.exceptions import NoCredentialsError
 
+# Reading configs
 config = configparser.ConfigParser()
-config.read("../pythonProject/config.ini")
+config.read(r"../PycharmProjects/upskill_project/config_file/config.ini")
 
 
+# Creating AWS S3 Bucket
 def create_s3_bucket(bucket_name, Access_key, Secret_key):
     s3 = boto3.client(service_name='s3',
                       aws_access_key_id=Access_key,
@@ -15,6 +15,7 @@ def create_s3_bucket(bucket_name, Access_key, Secret_key):
     s3.create_bucket(Bucket=bucket_name)
 
 
+# Uploaded raw data in S3 Bucket
 def upload_raw_data(df, path):
     s3 = boto3.resource(
         service_name='s3',

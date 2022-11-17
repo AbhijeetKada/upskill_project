@@ -7,7 +7,7 @@ from src.main.mysql_reader import get_diff_in_days,filter_data
 
 def test_get_diff_in():
     days =get_diff_in_days("2022-10-01 01:00:00","2022-10-31 01:00:00")
-    assert days ==30
+    assert days == 30
 
 
 def test_filter():
